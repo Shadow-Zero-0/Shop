@@ -2,17 +2,26 @@
 import styled from 'styled-components';
 import {  createUserWithEmailAndPassword } from "firebase/auth";
 import {  auth } from "../firebase";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Card = () => {
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
   let navigate = useNavigate();
+  const [user] = useAuthState(auth);
+useEffect(() => {
+  if(user){
+    navigate('/Companies')
+  }
+
+}, );
+
     return (
         <>
           <StyledWrapper style={{
-            border:'2px solid',
+     
                 width: '100%',
                 height: '100vh',
                 backgroundColor:'#000',
@@ -142,7 +151,7 @@ const StyledWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     .login {
       width: 70%;
-      padding: 3em;
+margin-left: 7%;
     }
   }
 

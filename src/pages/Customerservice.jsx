@@ -2,18 +2,29 @@
 
 import { Alert, Box, Card, CardActions, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { datatow } from '../datatow';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 
 const Customerservice = () => {
+  let navigate = useNavigate();
+  const [user] = useAuthState(auth);
+useEffect(() => {
+  if(!user){
+    navigate('/')
+  }
 
+}, );
 
     return (
         <Box sx={{
             width: '100%',
             height: '100vh',
         }}>
-                <Alert sx={{
-                    width:'50%',
+                <Alert className='alert' sx={{
+                    width:'400px',
                     mx:'auto',
                    position:'relative',
                    top:'60px',

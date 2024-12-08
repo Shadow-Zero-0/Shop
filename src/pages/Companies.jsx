@@ -7,13 +7,22 @@ import Typography from "@mui/material/Typography";
 import {  Button, Stack } from "@mui/material";
 import { data } from "../data";
 import { useNavigate } from "react-router";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+import { useEffect } from "react";
 
 
 
 
 const Profile = () => {
   let navigate = useNavigate();
+  const [user] = useAuthState(auth);
+useEffect(() => {
+  if(!user){
+    navigate('/')
+  }
 
+}, );
   return (
     <Stack sx={{
       flexDirection: 'row',

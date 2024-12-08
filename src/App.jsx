@@ -133,7 +133,7 @@ const App = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Avatar sx={{ width: 70, height: 70 }} src="../public/images.jpg" />
+            <Avatar sx={{ width: 70, height: 70 }} src="https://res.cloudinary.com/dbf32cjv8/image/upload/v1733616787/images_bct7fa.jpg" />
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
